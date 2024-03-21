@@ -29,12 +29,12 @@ public class StepsTest {
 
         step("Ищем репозиторий " + REPOSITORY, () -> {
             $(".search-input-container").click();
-            $("#query-builder-test").sendKeys("eroshenkoam/allure-example ");
+            $("#query-builder-test").sendKeys(REPOSITORY);
             $("#query-builder-test").submit();
         });
         step("Открываем репозиторий " + REPOSITORY, () -> {
             $(By.linkText("Repositories")).click();
-            $(By.linkText("eroshenkoam/allure-example")).click();
+            $(By.linkText(REPOSITORY)).click();
         });
         step("Переходим в таб Issue ", () -> {
             $("#issues-tab").click();
@@ -52,8 +52,9 @@ public class StepsTest {
         WebSteps steps = new WebSteps();
         steps.openMainPage();
         steps.searchForRepository(REPOSITORY);
-        steps.openRepositiry(REPOSITORY);
+        steps.openRepo(REPOSITORY);
         steps.openIssueTab();
         steps.shoulSeeIssueWithNumber(ISSUE_NUMBER);
+        steps.takeScreenshot();
     }
 }
