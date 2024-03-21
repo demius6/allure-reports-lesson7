@@ -23,7 +23,7 @@ public class SelenideTest {
         open("https://github.com");
 
         $(".search-input-container").click();
-        $("#query-builder-test").sendKeys("eroshenkoam/allure-example ");
+        $("#query-builder-test").sendKeys("eroshenkoam/allure-example");
         $("#query-builder-test").submit();
         $(By.linkText("Repositories")).click();
         $(By.linkText("eroshenkoam/allure-example")).click();
